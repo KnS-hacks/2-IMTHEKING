@@ -8,3 +8,6 @@ class Concert(models.Model):
   concert_image = models.ImageField(upload_to='post/', blank=True, null=True)
   latitude = models.FloatField(default=0.0)
   longitude = models.FloatField(default=0.0) 
+
+  def __str__(self):
+    return self.concert_title
