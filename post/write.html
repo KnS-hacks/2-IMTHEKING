@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="head.css">
+    <link rel="stylesheet" href="write.css">
+    <title>지금, 여기</title>
+</head>
+<body>
+    <div id="wrap">
+        <header>
+            <div class="logo">로고</div>
+            <div class="searcharea">
+                <form>
+                <input type="search" placeholder="위치를 입력하세요">
+                <button>검색</button>
+                </form>
+            </div>
+            <ul class="nav">
+                <li><a href="#">암더킹님</a></li>
+                <li><a href="#">로그아웃</a></li>
+            </ul>
+        </header>
+        <div id="post">
+            <span id="pagetitle">공연 정보 입력</span>
+            <span id="onestep">1</span>
+            <span id="twostep">2</span>
+            <div id="title">
+                <input type="text" placeholder="제목을 입력하세요"></input>
+            </div>
+            <hr>
+            <form>
+                <table>
+                    <tr>
+                        <td id="texttitle">공연자 : </td>
+                        <td id="textbody"><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td id="texttitle">공연위치 : </td>
+                        <td id="textbody"><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td id="texttitle">공연시간 : </td>
+                        <td id="textbody"><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td id="texttitle">공연소개 : </td>
+                        <td id="textbody"><input type="text" name="title"></td>
+                    </tr>
+                    <tr>
+                        <td id="texttitle">포스터 : </td>
+                        <td id="textbody"><form action="" method="post" enctype="multipart/form-data" name="">
+                            <input type="file" name="FileName">
+                        </form></td>
+                    </tr>
+                </table>
+            </form>
+            <div id="selectlocation">
+                <button>다음</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
