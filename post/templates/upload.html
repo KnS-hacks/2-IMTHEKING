@@ -8,12 +8,14 @@
 </head>
 <body>
   <div>
-    <form action="{% url 'upload' %}">
-      <input type="text" name="concert_title">
-      <input type="text" name="concert_player">
-      <input type="text" name="concert_location">
-      <input type="image" name="concert_image">
-      <textarea name="concert_detail" cols="30" rows="10"></textarea>
+    <form method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <input type="text" name="concert_title" id="concert_title">
+      <input type="text" name="concert_player" id="concert_player">
+      <input type="text" name="concert_location" id="concert_location">
+      <input type="file" name="concert_image" id="concert_image">
+      <textarea name="concert_detail" cols="30" rows="10" id="concert_detail"></textarea>
+      <button type="submit" id="submit-btn" style="color:white; font-size:20px;">등록하기</button>
     </form>
   </div>
 </body>
