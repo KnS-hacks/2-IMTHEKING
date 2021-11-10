@@ -1,11 +1,12 @@
+{%load static%}
 <!DOCTYPE html>
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="head.css">
-    <link rel="stylesheet" href="selectlocation.css">
+    <link rel="stylesheet" href="{% static 'css/head.css' %}">
+    <link rel="stylesheet" href="{% static 'css/selectlocation.css' %}">
     <title>지금, 여기</title>
 </head>
 <body>
@@ -31,11 +32,14 @@
         <p>마우스로 클릭해서 공연 위치를 표시해 주세요.</p>
         <div id="map">
             <img src="img\로고.png">
-            지도
+            <div id="realmap">
+            </div>
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9"></script>
             <div id="upload">
                 <button>업로드</button>
             </div>
         </div>
     </div>
+    <script src="{% static 'js/selectlocation.js' %}"></script>
 </body>
 </html>

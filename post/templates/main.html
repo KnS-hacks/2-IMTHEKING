@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/reset.css' %">
-    <link rel="stylesheet" href="{% static 'css/head.css' %">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/head.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
     <title>지금, 여기</title>
 </head>
 <body>
@@ -15,14 +16,14 @@
        <div id="header">
         <div id="nav">
             <div id="left">
-                <div id="logo"><img src="img\로고.png"></div>
+                <div id="logo"><img src="{% static 'img\로고.png' %}"></div>
             </div>
             <div id="center">
                 <div id="searcharea">
                     <input type="text">
                     <button>
                         <div id="searchimg">
-                        <img src="img\search.png">
+                        <img src="{% static 'img\search.png' %}">
                         </div>
                     </button>
                 </div>
@@ -36,9 +37,10 @@
                 </div>
             </div>
         </div>
+        </div>
         <!-- header끝 -->
         <div id="map">
-            <img src="img\로고.png">
+            <img src="{% static 'img\로고.png' %}">
             <div id="realmap">
             </div>
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9"></script>
