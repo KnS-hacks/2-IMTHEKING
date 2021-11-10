@@ -6,6 +6,7 @@ class Concert(models.Model):
   concert_location = models.CharField(max_length=40)
   concert_detail = models.TextField(default='')
   concert_image = models.ImageField(upload_to='post/', blank=True, null=True)
+  concert_datetime = models.CharField(max_length=40, null=True, default='')
   latitude = models.FloatField(default=0.0)
   longitude = models.FloatField(default=0.0) 
 

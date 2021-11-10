@@ -8,12 +8,13 @@
 </head>
 <body>
   <div>
-    <form action="{% url 'upload' %}">
+    <form method="POST" enctype="multipart/form-data" >
       <input type="text" name="concert_title">
       <input type="text" name="concert_player">
       <input type="text" name="concert_location">
       <input type="image" name="concert_image">
       <textarea name="concert_detail" cols="30" rows="10"></textarea>
+      <button type="submit" id="submit-btn" style="color:white; font-size:20px;">등록하기</button>
     </form>
   </div>
 </body>
