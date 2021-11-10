@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>detail page</title>
+</head>
+<body>
+    <h1>{{ Concert.concert_title }}</h1>
+    <p>{{ Concert.concert_player }}</p>
+    <p>{{ Concert.concert_location }}</p>
+    <p>{{ Concert.concert_detail }}</p>
+    <p>{{ Concert.concert_image }}</p>
+    <p>{{ Concert.concert_datetime }}</p>
+    <a href="{% url 'update' Concert.id %}">수정하기</a>
+    <a href="{% url 'delete' Concert.id %}">삭제하기</a>
+    
+</body>
+</html>
