@@ -37,16 +37,16 @@ def delete(request, Concert_id):
 # 게시글 수정하기
 
 def update(request, Concert_id):
+  concert = Concert.objects.get(id=Concert_id)
 
   if request.method == "GET":
-    return render(request, 'update.html')
-  if request.method == "POST":
-    concert_title = request.POST.get('concert_title', None)
-    concert_player = request.POST.get('concert_player', None)
-    concert_location = request.POST.get('concert_location', None)
-    concert_detail = request.POST.get('concert_detail', None)
-    concert_datetime = request.POST.get('concert_datetime', None)
-    concert_image = request.FILES.get('concert_image', None)
-    upload = Concert(concert_title=concert_title, concert_player=concert_player, concert_location=concert_location, concert_detail=concert_detail, concert_image=concert_image, concert_datetime=concert_datetime)
-    upload.save()
-    return redirect('main.html' + str(Concert_id))
+      return render(request, 'upload.html')
+  elif request.method == "POST":
+      concert.concert_title = request.POST.get('concert_title')
+      concert.concert_player = request.POST.get('concert_player', None)
+      concert.concert_location = request.POST.get('concert_location', None)
+      concert.concert_detail = request.POST.get('concert_detail', None)
+      concert.concert_datetime = request.POST.get('concert_datetime', None)
+      concert.concert_image = request.FILES.get('concert_image', None)
+      concert.save()
+      return redirect('/post/detail/' + str(concert.id))
