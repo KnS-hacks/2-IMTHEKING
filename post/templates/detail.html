@@ -7,14 +7,14 @@
     <title>detail page</title>
 </head>
 <body>
-    <h1>{{ Concert.concert_title }}</h1>
-    <p>{{ Concert.concert_player }}</p>
-    <p>{{ Concert.concert_location }}</p>
-    <p>{{ Concert.concert_detail }}</p>
-    <p>{{ Concert.concert_image }}</p>
-    <p>{{ Concert.concert_datetime }}</p>
-    <a href="{% url 'update' Concert.id %}">수정하기</a>
-    <a href="{% url 'delete' Concert.id %}">삭제하기</a>
+    <h1>{{ concert.concert_title }}</h1>
+    <p>{{ concert.concert_player }}</p>
+    <p>{{ concert.concert_location }}</p>
+    <p>{{ concert.concert_detail }}</p>
+    <p>{{ concert.concert_image }}</p>
+    <p>{{ concert.concert_datetime }}</p>
+    <a href="{% url 'update' concert.id %}">수정하기</a>
+    <a href="{% url 'delete' concert.id %}">삭제하기</a>
     
 </body>
 </html>
