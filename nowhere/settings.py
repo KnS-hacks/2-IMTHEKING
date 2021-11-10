@@ -72,6 +72,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'nowhere.wsgi.application'
 
+
 AUTH_USER_MODEL = 'account.User'
 
 # Database
@@ -128,6 +129,12 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+# 파일 업로드
+
+MEDIA_URL = '/media/' 
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
