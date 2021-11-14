@@ -11,8 +11,12 @@
                 {% csrf_token %}
                 <div id="searcharea">
                     <input type="search" aria-label="Search" name="q" value="{{q}}">
+                    <button type="submit">
+                        <div id="searchimg">
+                        <img src="{% static 'img\search.png' %}">
+                        </div>
+                    </button>    
                 </div>
-                <button type="submit">검색하기</button>
             </form>
         </div>
         <div id="right">
