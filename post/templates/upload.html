@@ -19,5 +19,15 @@
       <button type="submit" id="submit-btn" style="color:white; font-size:20px;">등록하기</button>
     </form>
   </div>
+  <script type="text/javascript">
+    var checkUnload = true;
+    $(window).on('beforeunload', function () {
+        if (checkUnload) return "이 페이지를 벗어나면 작성된 내용은 저장되지 않습니다.";
+    });
+    $("#write").on("click", function () {
+        checkUnload = false;
+        $("submit").submit();
+    });
+  </script>
 </body>
 </html>

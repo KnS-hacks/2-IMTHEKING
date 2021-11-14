@@ -1,0 +1,70 @@
+{% load static %}
+
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+
+{% include 'base.html'%}
+{% if not concerts %}
+    <h1>검색 결과가 없습니다.</h1>
+{%else%}
+    {% for concerts in concerts.all %}
+    <div class="container">
+        <div class="card">
+            <div class="card-body">
+                <div id="titlebox">
+                    <div id="title">
+                    <h1>{{ concerts.concert_title }}</h1>
+                    </div>
+                    <hr>
+                </div>
+                <div id="postbody">
+                    <div id="player">
+                        <div id="playerfix">
+                            <p>공연자</p>
+                        </div>
+                        <div id="playerform">
+                        <p>{{ concerts.concert_player }}</p>
+                        </div>
+                    </div>
+                    <div id="location">
+                        <div id="locationfix">
+                            <p>공연위치</p>
+                        </div>
+                        <div id="locationform">
+                        <p>{{ concerts.concert_location }}</p>
+                        </div>
+                    </div>
+                    <div id="datetime">
+                        <div id="datetimefix">
+                            <p>공연시간</p>
+                        </div>
+                        <div id="datetimeform">
+                        <p>{{ concerts.concert_datetime }}</p>
+                        </div>
+                    </div>
+                    <div id="detail">
+                        <div id="detailfix">
+                            <p>공연소개</p>
+                        </div>
+                        <div id="detailform">
+                        <p>{{ concerts.concert_detail }}</p>
+                        </div>
+                    </div>
+                    <div id="poster">
+                        <div id="posterfix">
+                            <p>포스터</p>
+                        </div>
+                        <div id="posterform">
+                        <img src="{{ concerts.concert_image.url }}">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+{% endif %}
+

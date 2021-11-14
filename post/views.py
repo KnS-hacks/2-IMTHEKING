@@ -50,3 +50,15 @@ def update(request, Concert_id):
       concert.concert_image = request.FILES.get('concert_image', None)
       concert.save()
       return redirect('/post/detail/' + str(concert.id))
+
+def search(request):
+    concerts = Concert.objects.all().order_by('-id')
+
+    q = request.POST.get('q', "") 
+
+    if q:
+        concerts = concerts.filter(concert_location__icontains=q)
+        return render(request, 'search.html', {'concerts' : concerts, 'q' : q})
+    
+    else:
+        return render(request, 'search.html')
