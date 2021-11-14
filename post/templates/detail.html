@@ -1,20 +1,82 @@
+{%load static%}
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>detail page</title>
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/detail.css' %}">
+    <title>지금, 여기</title>
 </head>
 <body>
-    <h1>{{ concert.concert_title }}</h1>
-    <p>{{ concert.concert_player }}</p>
-    <p>{{ concert.concert_location }}</p>
-    <p>{{ concert.concert_detail }}</p>
-    <img src="{{ concert.concert_image.url }}">
-    <p>{{ concert.concert_datetime }}</p>
-    <a href="{% url 'update' concert.id %}">수정하기</a>
-    <a href="{% url 'delete' concert.id %}">삭제하기</a>
-    
+    <div id="main-container"> 
+        {% include 'base.html' %}
+        <!-- postbox 시작 -->
+        <div id="postbox">
+            <div id="post">
+                <div id="content">
+                    <div id="titlebox">
+                        <div id="title">
+                        <h1>{{ concert.concert_title }}</h1>
+                        </div>
+                        <hr>
+                    </div>
+                    <div id="postbody">
+                        <div id="player">
+                            <div id="playerfix">
+                                <p>공연자</p>
+                            </div>
+                            <div id="playerform">
+                            <p>{{ concert.concert_player }}</p>
+                            </div>
+                        </div>
+                        <div id="location">
+                            <div id="locationfix">
+                                <p>공연위치</p>
+                            </div>
+                            <div id="locationform">
+                            <p>{{ concert.concert_location }}</p>
+                            </div>
+                        </div>
+                        <div id="datetime">
+                            <div id="datetimefix">
+                                <p>공연시간</p>
+                            </div>
+                            <div id="datetimeform">
+                            <p>{{ concert.concert_datetime }}</p>
+                            </div>
+                        </div>
+                        <div id="detail">
+                            <div id="detailfix">
+                                <p>공연소개</p>
+                            </div>
+                            <div id="detailform">
+                            <p>{{ concert.concert_detail }}</p>
+                            </div>
+                        </div>
+                        <div id="poster">
+                            <div id="posterfix">
+                                <p>포스터</p>
+                            </div>
+                            <div id="posterform">
+                            <img src="{{ concert.concert_image.url }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div id="buttonbox">
+                        <div id="modify">
+                            <a href="{% url 'update' concert.id %}">수정</a>
+                        </div>
+                        <div id="delete">
+                            <a href="{% url 'delete' concert.id %}">삭제</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- postbox 끝 -->
+    </div>
 </body>
 </html>
