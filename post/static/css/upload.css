@@ -114,6 +114,10 @@ input:focus {
   font-size: 1rem;
 }
 
+#concert_image {
+  width: 700px;
+}
+
 #button-area {
   width: 100%;
   display: flex;
