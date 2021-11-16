@@ -3,7 +3,11 @@
        <div id="header">
             <div id="nav">
                 <div id="left">
-                    <div id="logo"><img src="{% static 'img\로고.png' %}"></div>
+                    <div id="logo">
+                        <a href="{% url 'main' %}"> <!--로고 main으로 연결-->
+                            <img src="{% static 'img\로고.png' %}"> 
+                        </a>
+                    </div>
                 </div>
                 <div id="center">
                     <div id="searcharea">
