@@ -19,60 +19,55 @@
                 <div id="content">
                     <div id="titlebox">
                         <div id="title">
-                        <h1>{{ concert.concert_title }}</h1>
+                            <p>{{ concert.concert_title }}</p>
                         </div>
                         <hr>
                     </div>
                     <div id="postbody">
-                        <div id="player">
-                            <div id="playerfix">
+                        <div class="items">
+                            <div class="item-title">
                                 <p>공연자</p>
                             </div>
-                            <div id="playerform">
-                            <p>{{ concert.concert_player }}</p>
-                            </div>
+                                <div class="item-input">
+                                    <p>{{ concert.concert_player }}</p>
+                                </div>
                         </div>
-                        <div id="location">
-                            <div id="locationfix">
+                        <div class="items">
+                            <div class="item-title">
                                 <p>공연위치</p>
                             </div>
-                            <div id="locationform">
-                            <p>{{ concert.concert_location }}</p>
-                            </div>
+                                <div class="item-input">
+                                    <p>{{ concert.concert_location }}</p>
+                                </div>
                         </div>
-                        <div id="datetime">
-                            <div id="datetimefix">
+                        <div class="items">
+                            <div class="item-title">
                                 <p>공연시간</p>
                             </div>
-                            <div id="datetimeform">
-                            <p>{{ concert.concert_datetime }}</p>
-                            </div>
+                                <div class="item-input">
+                                    <p>{{ concert.concert_datetime }}</p>
+                                </div>
                         </div>
-                        <div id="detail">
-                            <div id="detailfix">
+                        <div class="items">
+                            <div class="item-title">
                                 <p>공연소개</p>
                             </div>
-                            <div id="detailform">
-                            <p>{{ concert.concert_detail }}</p>
-                            </div>
+                                <div class="item-input">
+                                    {{ concert.concert_detail }}
+                                </div>
                         </div>
-                        <div id="poster">
-                            <div id="posterfix">
+                        <div class="items">
+                            <div class="item-title">
                                 <p>포스터</p>
                             </div>
-                            <div id="posterform">
-                            <img src="{{ concert.concert_image.url }}">
+                                <div class="image-area">
+                                    <img id="concert_image" src="{{ concert.concert_image.url }}" alt="">
+                                </div>
+                        </div>
+                            <div id="button-area">
+                                <button class="submit-button">등록하기</button>
                             </div>
-                        </div>
-                    </div>
-                    <div id="buttonbox">
-                        <div id="modify">
-                            <a href="{% url 'update' concert.id %}">수정</a>
-                        </div>
-                        <div id="delete">
-                            <a href="{% url 'delete' concert.id %}">삭제</a>
-                        </div>
-                    </div>
+                    </div>  
                 </div>
             </div>
         </div>
@@ -80,3 +75,6 @@
     </div>
 </body>
 </html>
+
+<a href="{% url 'update' concert.id %}">수정</a>
+<a href="{% url 'delete' concert.id %}">삭제</a>
