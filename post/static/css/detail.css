@@ -5,11 +5,14 @@
 html,
 body {
   height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 #post {
   display: flex;
   justify-content: center;
   border-bottom: 1px solid #e4e4e4;
+  font-size:medium;
+  font-family: 'Noto Sans KR', sans-serif;
 }
 #content {
   height: 100%;
