@@ -41,8 +41,9 @@ body {
   margin-right: 70px;
   border: 2px solid #e4e4e4;
   border-radius: 15px;
+  padding-left: 10px;
   height: 50px;
-  font-size: 1.6rem;
+  font-size: 22px;
   font-weight: bold;
 }
 
@@ -88,8 +89,9 @@ body {
   border: none;
   height: 40px;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 14px;
   border-radius: 15px;
+  padding-left: 10px;
 }
 
 input:focus {
@@ -101,8 +103,9 @@ input:focus {
   border: none;
   height: 120px;
   width: 100%;
-  font-size: 1.4rem;
+  font-size: 14px;
   border-radius: 15px;
+  padding: 10px 0px 0px 10px;
 }
 
 .image-area input {
@@ -123,8 +126,9 @@ input:focus {
   background-color: #ffe57b;
   border: 3px #3d2500 solid;
   border-radius: 80px;
-  margin-right: 70px;
-  font: inherit;
+  margin: 0px 70px 30px 0px;
+  font-size: 16px;
+  font-weight: bold;
 }
 
 #buttonbox {
