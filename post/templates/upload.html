@@ -18,61 +18,59 @@
             <div id="post">
                 <div id="content">
                     <form method="POST" enctype="multipart/form-data" >
-                      {% csrf_token %}
-                      <div id="titlebox">
-                        <div id="title">
-                          <input type="text" name="concert_title" placeholder="공연 제목을 입력하세요." autocomplete="off">
+                        {% csrf_token %}
+                        <div id="titlebox">
+                            <div id="title">
+                                <input type="text" name="concert_title" placeholder="공연 제목을 입력하세요." autocomplete="off">
+                            </div>
+                            <hr>
                         </div>
-                        <hr>
-                    </div>
-                    <div id="postbody">
-                        <div class="items">
-                            <div class="item-title">
-                                <p>공연자</p>
+                        <div id="postbody">
+                            <div class="items">
+                                <div class="item-title">
+                                    <p>공연자</p>
+                                </div>
+                                    <div class="item-input">
+                                        <input type="text" name="concert_player" autocomplete="off">
+                                    </div>
                             </div>
-                            <div class="item-input">
-                              <input type="text" name="concert_player" autocomplete="off">
+                            <div class="items">
+                                <div class="item-title">
+                                    <p>공연위치</p>
+                                </div>
+                                    <div class="item-input">
+                                        <input type="text" name="concert_location" autocomplete="off">
+                                    </div>
                             </div>
-                        </div>
-                        <div class="items">
-                            <div class="item-title">
-                                <p>공연위치</p>
+                            <div class="items">
+                                <div class="item-title">
+                                    <p>공연시간</p>
+                                </div>
+                                    <div class="item-input">
+                                        <input type="datetime-local" name="concert_datetime" id="concert_datetime" autocomplete="off">
+                                    </div>
                             </div>
-                            <div class="item-input">
-                              <input type="text" name="concert_location" autocomplete="off">
+                            <div class="items">
+                                <div class="item-title">
+                                    <p>공연소개</p>
+                                </div>
+                                    <div class="item-input">
+                                        <textarea name="concert_detail"></textarea>
+                                    </div>
                             </div>
-                        </div>
-                        <div class="items">
-                            <div class="item-title">
-                                <p>공연시간</p>
+                            <div class="items">
+                                <div class="item-title">
+                                    <p>포스터</p>
+                                </div>
+                                    <div class="image-area">
+                                        <input type="file" name="concert_image" accept="image/jpg, image/jpeg, image/png, image/svg">
+                                    </div>
                             </div>
-                            <div class="item-input">
-                              <input type="datetime-local" name="concert_datetime" id="concert_datetime" autocomplete="off">
-                            </div>
-                        </div>
-                        <div class="items">
-                            <div class="item-title">
-                                <p>공연소개</p>
-                            </div>
-                            <div class="item-input">
-                              <textarea name="concert_detail"></textarea>
-                            </div>
-                        </div>
-                        <div class="items">
-                            <div class="item-title">
-                                <p>포스터</p>
-                            </div>
-                            <div class="image-area">
-                              <input type="file" name="concert_image" accept="image/jpg, image/jpeg, image/png, image/svg">
-                            </div>
-                        </div>
-                        <div id="button-area">
-                          <button class="submit-button">등록하기</button>
-                        </div>
-                    </div>  
+                                <div id="button-area">
+                                    <button class="submit-button">등록하기</button>
+                                </div>
+                        </div>  
                     </form>
-                    
-
                 </div>
             </div>
         </div>
