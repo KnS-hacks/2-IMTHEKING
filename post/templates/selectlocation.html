@@ -13,12 +13,22 @@
 <body>
     <div id="wrap">
         {% include 'base.html' %}
-        <div id="post">
-                위도: <input type="text" id="lat" name="name" required minlength="4" maxlength="8" size="10">
-                경도: <input type="text" id="lon" name="name" required minlength="4" maxlength="8" size="10">
-                <button class="btn" id="button">등록하기</button>
-        </div><br><br>
-        <p>마우스로 클릭해서 공연 위치를 표시해 주세요.</p>
+        <div id="extrahead">
+            <div id="post">
+                <form method="post">
+                    <input type="text" id="lat" name="name" required minlength="4" maxlength="8" size="10">
+                    <input type="text" id="lon" name="name" required minlength="4" maxlength="8" size="10">
+                </form>
+            </div>
+            <div id="extraheadbox">
+                <div id="info">
+                    <p>마우스로 클릭해서 공연 위치를 표시해 주세요.</p>
+                </div>
+                <div id="uploadbtn">
+                    <button class="btn" id="button">등록</button></form>
+                </div>
+            </div>
+        </div>
         <div id="map">
             <div id="realmap">
             </div>
