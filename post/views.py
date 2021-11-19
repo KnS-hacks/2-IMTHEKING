@@ -16,6 +16,7 @@ def main (request):
       "address": concert.concert_address,
       "latitude": str(concert.latitude),
       "longitude": str(concert.longitude),
+      "id": concert.id,
     }
     concertdict.append(content)
 
