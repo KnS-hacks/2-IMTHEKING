@@ -1,12 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>로그인</title>
 </head>
 <body>
-  
+  <form action="{% url 'login' %}" method="POST">
+      {% csrf_token %}
+      <div class="input-element">
+          <div>
+              <!--ID입력창-->
+              <label style="color: #f65656; font-weight:700;">아이디</label><br>
+              <input type="text" name="email" placeholder="이름을 입력하세요." id="email" required>
+          </div>
+          <div>
+              <!--PASSWORD입력창-->
+              <label style="color: #f65656; font-weight:700;">비밀번호</label><br>
+              <input type="password" name="password" placeholder="비밀번호를 입력하세요." id="password" required>
+          </div>
+          <!--로그인 버튼-->
+          <button type="submit" id="submit-btn">로그인</button>
+      </div>
+      {% if user.is_authenticated %}
+        <p>{{user.username}} 님 환영합니다!</p>
+      {% endif %}
+  </form>
 </body>
 </html>
