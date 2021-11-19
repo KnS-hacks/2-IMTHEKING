@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {%load static%}
 <!DOCTYPE html>
 <html lang="ko">
@@ -101,4 +102,44 @@
     </div>
     
 </body>
+=======
+{%load static%}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>지금, 여기</title>
+</head>
+<body>
+    <div id="wrap">
+        {% include 'base.html' %}
+        <div id="map">
+            <div id="realmap">
+            </div>
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9"></script>
+            <script>
+
+                var mapContainer = document.getElementById('realmap'), // 지도를 표시할 div 
+                    mapOption = { 
+                        center: new kakao.maps.LatLng(37.28897934412961, 127.14786791582839), // 지도의 중심좌표
+                        level: 5, // 지도의 확대 레벨
+                    };
+
+                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+                var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                var concerts = JSON.parse("{{ concertJson|escapejs }}");
+                console.log(concerts);
+
+            </script>
+        </div>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+</body>
+>>>>>>> 26e64121249c423a2b826800896fb939080c9181
 </html>
