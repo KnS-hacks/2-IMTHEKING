@@ -5,39 +5,24 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'css/head.css' %}">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <link rel="stylesheet" href="{% static 'css/selectlocation.css' %}">
     <title>지금, 여기</title>
 </head>
 <body>
     <div id="wrap">
-        <header>
-            <div class="logo">로고</div>
-            <div class="searcharea">
-                <form>
-                <input type="search" placeholder="위치를 입력하세요">
-                <button>검색</button>
-                </form>
-            </div>
-            <ul class="nav">
-                <li><a href="#">암더킹님</a></li>
-                <li><a href="#">로그아웃</a></li>
-            </ul>
-        </header>
+        {% include 'base.html' %}
         <div id="post">
-            <span id="pagetitle">공연 위치 선택</span>
-            <span id="onestep">1</span>
-            <span id="twostep">2</span>
-        </div>
+                위도: <input type="text" id="lat" name="name" required minlength="4" maxlength="8" size="10">
+                경도: <input type="text" id="lon" name="name" required minlength="4" maxlength="8" size="10">
+                <button class="btn" id="button">등록하기</button>
+        </div><br><br>
         <p>마우스로 클릭해서 공연 위치를 표시해 주세요.</p>
         <div id="map">
-            <img src="img\로고.png">
             <div id="realmap">
             </div>
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9"></script>
-            <div id="upload">
-                <button>업로드</button>
-            </div>
         </div>
     </div>
     <script src="{% static 'js/selectlocation.js' %}"></script>
