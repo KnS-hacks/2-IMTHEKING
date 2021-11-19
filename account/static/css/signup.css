@@ -57,7 +57,7 @@ body {
 }
 #buttonbox > button {
     width: 220px;
-    height: 40px;
+    height: 50px;
     border: #3d2500 3px solid;
     border-radius: 50px;
     background-color: #FFE57B;
@@ -66,9 +66,4 @@ body {
     font-family: 'Noto Sans KR', sans-serif;
     cursor: pointer;
     margin-top: 10px;
-}
-#hello {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px;
 }
