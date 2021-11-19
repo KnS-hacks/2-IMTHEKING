@@ -64,17 +64,27 @@
                                     <img id="concert_image" src="{{ concert.concert_image.url }}" alt="">
                                 </div>
                         </div>
-                            <div id="button-area">
-                                <button class="submit-button">등록하기</button>
-                            </div>
+                        {% if not user.is_authenticated %}
+                        <div id="button-area">
+                            <button class="back-button" onclick="goBack()">뒤로가기</button>
+                        </div>
+                        {% endif %}
+                        {% if user.is_authenticated %}
+                        <div id="button-area">
+                            <button class="update-button"><a href="{% url 'update' concert.id %}">수정</a></button>
+                            <button class="delete-button"><a href="{% url 'delete' concert.id %}">삭제</a></button>
+                        </div>
+                        {% endif %}
                     </div>  
                 </div>
             </div>
         </div>
         <!-- postbox 끝 -->
     </div>
+    <script>
+        function goBack() {
+          window.history.back();
+        }
+    </script>
 </body>
 </html>
-
-<a href="{% url 'update' concert.id %}">수정</a>
-<a href="{% url 'delete' concert.id %}">삭제</a>
