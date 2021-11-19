@@ -66,3 +66,9 @@ def update(request, Concert_id):
       concert.concert_image = request.FILES.get('concert_image', None)
       concert.save()
       return redirect('/post/detail/' + str(concert.id))
+
+def search(request):
+  search_word = request.GET['search']
+  addresses = Concert.objects.filter(concert_address__contains = search_word)
+
+  return render (request, 'main.html', {'addresses':addresses})
