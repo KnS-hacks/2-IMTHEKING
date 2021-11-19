@@ -1,68 +1,65 @@
-@font-face {
-    font-family: 'OTWelcomeRA';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2110@1.0/OTWelcomeRA.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
+html,
+body {
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
 }
-
-#twostep{
-    width: 100px;
-    height: 5px;
-    background-color: #3d3203;
-    border-radius: px;
-    border: 2px solid #2c2401;
-    color: #fff;
-    font-weight: bold;
-}
-#onestep{
-    width: 25px;
-    height: 5px;
-    background-color: #f8f8f8;
-    border-radius: px;
-    border: 2px solid #2c2401;
-    color: #3d3203;
-    font-weight: bold;
+#wrap {
+    width: 100%;
+    height: 100%;
 }
 #map {
-    background-color: aquamarine;
     width: 100%;
-    height: 600px;
+    height: 100%;
 }
 
 /* 지도 외의 것 */
-#post {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 20px;
-    font-family: 'OTWelcomeRA';
-}
-
 #lat, #lon {
     font-size: 20px;
+    display: none;
 }
-
-p {
-    font-family: 'OTWelcomeRA';
+#extrahead {
+    width: 100%;
     display: flex;
     justify-content: center;
 }
+#extraheadbox {
+    display: flex;
+    justify-content: center;
+    flex:1;
+    background-color: rgb(255, 255, 255);
+    max-width: 1800px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#info {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(255, 255, 255);
+    width: 70%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 145px;
+}
 
 /* 버튼 호버 */
-
 .btn{
-    background-color: #f8f8f8;
-    color: #888;
-    border: 1px solid #e8e8e8;
-    font-size: 1.125em;
-    letter-spacing: 0px;
-    padding: 10px 60px;
+    background-color: #3d2500;
+    color: #fff;
+    border: 3px solid #3d2500;
+    border-radius: 50px;
+    font-size: 20px;
     cursor: pointer;
-    display: inline-block;
     margin: 3px 10px;
-    transition: all 0.5s;    
+    transition: all 0.5s;
+    width: 120px;
+    height: 40px;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-weight: bold;
 }
 .btn:hover{
-    background: rgba(96,96,0,0.5);
-    color: white;
-    transition: all 0.5s;
+    background: #f8f8f8;
+    color: #3d2500;
+    transition: all 0.7s;
 }
