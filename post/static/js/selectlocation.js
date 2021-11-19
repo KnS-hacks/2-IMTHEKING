@@ -21,10 +21,14 @@ kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
             var detailAddr = !!result[0].road_address ? '<div>도로명주소 : ' + result[0].road_address.address_name + '</div>' : '';
             
             var content = '<div class="bAddr">' + detailAddr + '</div>';
-
+            
+            var latlng = mouseEvent.latLng;
             // 마커를 클릭한 위치에 표시합니다 
             marker.setPosition(mouseEvent.latLng);
             marker.setMap(map);
+
+            document.getElementById("lat").value=latlng.getLat();
+            document.getElementById("lon").value=latlng.getLng();
 
             // 인포윈도우에 클릭한 위치에 대한 법정동 상세 주소정보를 표시합니다
             infowindow.setContent(content);

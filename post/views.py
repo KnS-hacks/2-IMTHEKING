@@ -21,34 +21,30 @@ def main (request):
   concertJson = json.dumps(concertdict)
   return render(request, 'main.html', {'concertJson':concertJson})
 
-def location_upload(request, Concert_id):
-  concert = Concert.objects.get(id=Concert_id)
-  if request.method == "GET":
-      return render(request, 'selectlocation.html')
-  elif request.method == "POST":
-      latitude = request.POST.get('latitude', None)
-      longitude = request.POST.get('longitude', None)
-      concert_address = request.POST.get('concert_address', None)
-      concert.update()
-      return render(request, 'main.html') # location => select
-
-def location(request, concert_id):
-    concert=Concert.objects.get(id=concert_id)
-    return render(request, 'selectlocation.html') # location => select
+def location(request, Concert_id):
+    concert=Concert.objects.get(id=Concert_id)
+    if request.method == "POST":
+      concert.latitude = request.POST.get('latitude', None)
+      concert.longitude = request.POST.get('longitude', None)
+      concert.concert_address = request.POST.get('concert_address', None)
+      concert.save()
+      return redirect('/post/detail/' + str(concert.id)) # location => select
+    else:
+      return render(request, 'selectlocation.html') # location => select
 
 def upload(request):
   if request.method == "GET":
       return render(request, 'upload.html')
   elif request.method == "POST":
-      concert_title = request.POST.get('concert_title', None)
-      concert_player = request.POST.get('concert_player', None)
-      concert_location = request.POST.get('concert_location', None)
-      concert_detail = request.POST.get('concert_detail', None)
-      concert_datetime = request.POST.get('concert_datetime', None)
-      concert_image = request.FILES.get('concert_image', None)
-      upload = Concert(concert_title=concert_title, concert_player=concert_player, concert_location=concert_location, concert_detail=concert_detail, concert_image=concert_image, concert_datetime=concert_datetime)
-      upload.save()
-      return render(request, 'selectlocation.html') # location => select
+      concert = Concert()
+      concert.concert_title = request.POST.get('concert_title', None)
+      concert.concert_player = request.POST.get('concert_player', None)
+      concert.concert_location = request.POST.get('concert_location', None)
+      concert.concert_detail = request.POST.get('concert_detail', None)
+      concert.concert_datetime = request.POST.get('concert_datetime', None)
+      concert.concert_image = request.FILES.get('concert_image', None)
+      concert.save()
+      return redirect('/post/selectlocation/' + str(concert.id)) # location => select
 
 # 게시글 불러오기
 def detail(request, Concert_id):
@@ -76,4 +72,4 @@ def update(request, Concert_id):
       concert.concert_datetime = request.POST.get('concert_datetime', None)
       concert.concert_image = request.FILES.get('concert_image', None)
       concert.save()
-      return redirect('/post/detail/' + str(concert.id))
+      return redirect('/post/selectlocation/' + str(concert.id))

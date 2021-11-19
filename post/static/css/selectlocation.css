@@ -15,7 +15,7 @@ body {
 /* 지도 외의 것 */
 #lat, #lon {
     font-size: 20px;
-    display: none;
+    /* display: none; */
 }
 #extrahead {
     width: 100%;
