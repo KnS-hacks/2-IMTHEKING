@@ -1,0 +1,69 @@
+* {
+    font-size: 10px;
+}
+
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    font-size: 1.3rem;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+#signupbox {
+    display: flex;
+    justify-content: center;
+}
+.input-element {
+    margin-top: 30px;
+    width: 500px;
+    height: 550px;
+    border: 3.5px solid #3d2500;
+    border-radius: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#boxwrap {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+#title {
+    margin-bottom: 40px;
+    font-size: larger;
+}
+#writebox {
+    margin-bottom: 30px;
+}
+#writebox label {
+    font-size: medium;
+}
+#signupbox input {
+    border-left: 0ch;
+    border-top: 0;
+    border-right: 0;
+    border-bottom: #3d2500 2px solid;
+    width: 340px;
+    height: 20px;
+    background-color: none;
+    outline: none;
+    margin-top: 15px;
+    font-size: small;
+}
+#buttonbox > button {
+    width: 220px;
+    height: 50px;
+    border: #3d2500 3px solid;
+    border-radius: 50px;
+    background-color: #FFE57B;
+    font-size: medium;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
+    cursor: pointer;
+    margin-top: 10px;
+}

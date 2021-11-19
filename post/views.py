@@ -18,8 +18,11 @@ def main (request):
     }
     concertdict.append(content)
 
+  search_word = request.GET['search']
+  addresses = Concert.objects.filter(concert_address__contains = search_word)
+
   concertJson = json.dumps(concertdict)
-  return render(request, 'main.html', {'concertJson':concertJson})
+  return render(request, 'main.html', {'concertJson':concertJson, 'addresses':addresses})
 
 def location(request, Concert_id):
     concert=Concert.objects.get(id=Concert_id)

@@ -1,0 +1,173 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+#post {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid #e4e4e4;
+  font-size:medium;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+#content {
+  height: 100%;
+  width: 70%;
+  background-color: #ffffff;
+  border: 5px solid #ffe57b;
+  border-top-right-radius: 50px;
+  border-top-left-radius: 50px;
+  border-bottom: none;
+  display: flex;
+  flex-direction: column;
+  padding-right: 80px;
+  padding-left: 80px;
+  padding-top: 50px;
+  justify-content: center;
+  margin-top: 50px;
+  min-width: 1000px;
+  max-width: 1500px;
+}
+
+#title {
+  display: flex;
+  margin-left: 125px;
+  margin-bottom: 50px;
+}
+#title > p {
+  font-size: 40px;
+}
+
+#titlebox > hr {
+  display: flex;
+  background-color: #ffe57b;
+  border: 2px solid #ffe57b;
+  border-radius: 50px;
+  margin: 50px 70px;
+}
+
+/* post-box 시작 */
+#postbody {
+  display: flex;
+  flex-direction: column;
+  font-size: larger;
+  margin-left: 130px;
+}
+
+.items {
+  width: 100%;
+  display: flex;
+  margin-bottom: 70px;
+}
+
+.item-title {
+  margin-right: 120px;
+  border-right: #ffe57b 7px solid;
+  padding-right: 100px;
+}
+
+.item-title p {
+  width: 100px;
+}
+
+.item-input {
+  margin-right: 70px;
+  flex: 1;
+}
+
+.item-input input {
+  background-color: beige;
+  border: none;
+  height: 40px;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 15px;
+  padding-left: 10px;
+}
+
+input:focus {
+  outline: none;
+}
+
+.item-input textarea {
+  background-color: beige;
+  border: none;
+  height: 120px;
+  width: 100%;
+  font-size: 14px;
+  border-radius: 15px;
+  padding: 10px 0px 0px 10px;
+}
+
+.image-area input {
+  height: 40px;
+  width: 100%;
+  font-size: 1rem;
+}
+
+#concert_image {
+  width: 600px;
+  max-width: 600px;
+}
+
+#button-area {
+  width: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.back-button {
+  width: 160px;
+  height: 60px;
+  background-color: #ffe57b;
+  border: 3px #3d2500 solid;
+  border-radius: 80px;
+  margin: 0px 70px 30px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.update-button {
+  width: 160px;
+  height: 60px;
+  background-color: #ffe57b;
+  border: 3px #3d2500 solid;
+  border-radius: 80px;
+  margin: 0px 70px 30px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.delete-button {
+  width: 100px;
+  height: 60px;
+  background-color: #ffffff;
+  border: 3px #3d2500 solid;
+  border-radius: 80px;
+  margin: 0px 30px 30px 0px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.update-button > a {
+  text-decoration: none;
+  text-align: center;
+  color: #3d2500;
+}
+
+.delete-button > a {
+  text-decoration: none;
+  text-align: center;
+  color: #3d2500;
+}
+
