@@ -16,19 +16,19 @@
     <div id="wrap">
         {% include 'base.html' %}
         <div id="extrahead">
+            <div id="extraheadbox">
+                <div id="info">
+                    <p>마우스로 클릭해서 공연 위치를 표시해 주세요.</p>
+                </div>
+            </div>
             <div id="post">
                 <form method="POST" enctype="multipart/form-data">
                     {% csrf_token %}
                     <input type="text" id="lat" name="latitude">
                     <input type="text" id="lon" name="longitude">
-                    <input type="text" id="address" name="concert_address">
+                    <input type="text" id="address" name="concert_address" placeholder="주소가표시됩니다."><br>
                     <button type="submit" class="btn" id="button">등록</button>
                 </form>
-            </div>
-            <div id="extraheadbox">
-                <div id="info">
-                    <p>마우스로 클릭해서 공연 위치를 표시해 주세요.</p>
-                </div>
             </div>
         </div>
         <div id="map">
