@@ -6,27 +6,25 @@ from django.contrib.auth import login
 
 # Create your views here.
 
-def login(request):
-    return render(request,'login.html')
 
-def signin(request):
+def login(request):
     if request.method == "GET":
-        return render(request, 'signin.html')
+        return render(request, 'login.html')
     elif request.method == "POST":
         email = request.POST.get('email')
         password = request.POST.get('password')
         user = authenticate(request, email=email, password=password)
         if user is None:
             print("인증 실패")
-            return  render (request, 'signin.html')
+            return  render (request, 'login.html')
         else: 
             print("인증 성공")
             auth.login(request, user)
-            return render(request, 'fi.html')
+            return render(request, 'main.html')
             response.set_cookie('email', email)
             response.set_cookie('password', password)
             return response
-    return render(request, 'fi.html')
+    return render(request, 'main.html')
 
 def signup(request):
     if request.method == "POST":
@@ -47,9 +45,5 @@ def signup(request):
     return render(request, 'signup.html')
 
 def logout(request):
-    if request.method == "POST" :
-        auth.logout(request)
-        return redirect('/', {'caution':'로그아웃 되었습니다'})
-    
-def fi(request):
-    return render(request, 'fi.html')
+    auth.logout(request)
+    return redirect('/', {'caution':'로그아웃 되었습니다'})
