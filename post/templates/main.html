@@ -18,8 +18,6 @@
             </div>
             <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9"></script>
             <script>
-                var concerts = JSON.parse("{{ concertJson|escapejs }}");
-                console.log(concerts);
 
                 var mapContainer = document.getElementById('realmap'), // 지도를 표시할 div 
                     mapOption = { 
@@ -30,9 +28,9 @@
                 // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
                 var map = new kakao.maps.Map(mapContainer, mapOption);
 
-                
+                var concerts = JSON.parse("{{ concertJson|escapejs }}");
+                console.log(concerts);
 
-                
             </script>
         </div>
     </div>

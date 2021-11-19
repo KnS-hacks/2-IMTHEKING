@@ -5,7 +5,22 @@ import json
 
 # Create your views here.
 def main (request):
-  return render (request, "main.html")
+  concerts = Concert.objects.all()
+
+  concertdict = []
+  for concert in concerts:
+    content = {
+      "title": concert.concert_title,
+      "palyer": concert.concert_player,
+      "datetime": concert.concert_datetime,
+      "address": concert.concert_address,
+      "latitude": str(concert.latitude),
+      "longitude": str(concert.longitude),
+    }
+    concertdict.append(content)
+
+  concertJson = json.dumps(concertdict)
+  return render(request, 'main.html', {'concertJson':concertJson})
 
 def location(request):
     return render(request, 'selectlocation.html') # location => select
@@ -50,21 +65,3 @@ def update(request, Concert_id):
       concert.concert_image = request.FILES.get('concert_image', None)
       concert.save()
       return redirect('/post/detail/' + str(concert.id))
-
-def toJson(request):
-  concerts = Concert.objects.all()
-
-  concertdict = []
-  for concert in concerts:
-    content = {
-      "title": concert['concert_title'],
-      "palyer": concert['concert_player'],
-      "datetime": concert['concert_datetime'],
-      "address": concert['concert_address'],
-      "latitude": str(concert['latitude']),
-      "longtitude": str(concert['longtitude']),
-    }
-    concertdict.append(content)
-
-    concertJson = json.dumps(concertdict, ensure_ascii=False)
-    return render(request, 'main.html', {'concertJson':concertJson})
