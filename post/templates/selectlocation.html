@@ -15,24 +15,26 @@
         {% include 'base.html' %}
         <div id="extrahead">
             <div id="post">
-                <form method="post">
-                    <input type="text" id="lat" name="name" required minlength="4" maxlength="8" size="10">
-                    <input type="text" id="lon" name="name" required minlength="4" maxlength="8" size="10">
+                <form method="POST" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <input type="text" id="lat" name="latitude">
+                    <input type="text" id="lon" name="longitude">
+                    <input type="text" id="address" name="concert_address">
+                    <div id="uploadbtn">
+                        <button type="submit" class="btn" id="button">등록</button>
+                    </div>
                 </form>
             </div>
             <div id="extraheadbox">
                 <div id="info">
                     <p>마우스로 클릭해서 공연 위치를 표시해 주세요.</p>
                 </div>
-                <div id="uploadbtn">
-                    <button class="btn" id="button">등록</button></form>
-                </div>
             </div>
         </div>
         <div id="map">
             <div id="realmap">
             </div>
-            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9"></script>
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9&libraries=services"></script>
         </div>
     </div>
     <script src="{% static 'js/selectlocation.js' %}"></script>

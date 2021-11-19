@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Concert
 import json
 
-
 # Create your views here.
 def main (request):
   concerts = Concert.objects.all()
@@ -22,7 +21,19 @@ def main (request):
   concertJson = json.dumps(concertdict)
   return render(request, 'main.html', {'concertJson':concertJson})
 
-def location(request):
+def location_upload(request, Concert_id):
+  concert = Concert.objects.get(id=Concert_id)
+  if request.method == "GET":
+      return render(request, 'selectlocation.html')
+  elif request.method == "POST":
+      latitude = request.POST.get('latitude', None)
+      longitude = request.POST.get('longitude', None)
+      concert_address = request.POST.get('concert_address', None)
+      concert.update()
+      return render(request, 'main.html') # location => select
+
+def location(request, concert_id):
+    concert=Concert.objects.get(id=concert_id)
     return render(request, 'selectlocation.html') # location => select
 
 def upload(request):
@@ -38,6 +49,7 @@ def upload(request):
       upload = Concert(concert_title=concert_title, concert_player=concert_player, concert_location=concert_location, concert_detail=concert_detail, concert_image=concert_image, concert_datetime=concert_datetime)
       upload.save()
       return render(request, 'selectlocation.html') # location => select
+
 # 게시글 불러오기
 def detail(request, Concert_id):
   concert = Concert.objects.get(id=Concert_id)
