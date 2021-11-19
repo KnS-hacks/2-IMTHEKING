@@ -24,7 +24,6 @@ body {
 }
 #extraheadbox {
     display: flex;
-    justify-content: center;
     flex:1;
     background-color: rgb(255, 255, 255);
     max-width: 1800px;
@@ -38,9 +37,16 @@ body {
     background-color: rgb(255, 255, 255);
     width: 70%;
     display: flex;
-    justify-content: center;
     align-items: center;
-    padding-left: 145px;
+    margin-left: 550px;
+}
+#post {
+    margin-right: 90px;
+}
+#address{
+    border : none;
+    outline: none;
+    text-align: end;
 }
 
 /* 버튼 호버 */
