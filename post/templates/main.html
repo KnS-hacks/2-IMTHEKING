@@ -1,3 +1,108 @@
+<<<<<<< HEAD
+{%load static%}
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <title>지금, 여기</title>
+</head>
+<body>
+    <div id="wrap">
+        {% include 'base.html' %}
+        <div id="map">
+            <div id="realmap">
+            </div>
+            <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=48fb92eb759b013a41c30fdf66a85fc9"></script>
+            <script>
+
+                var mapContainer = document.getElementById('realmap'), // 지도를 표시할 div 
+                    mapOption = { 
+                        center: new kakao.maps.LatLng(37.28897934412961, 127.14786791582839), // 지도의 중심좌표
+                        level: 5, // 지도의 확대 레벨
+                    };
+
+                // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
+                var map = new kakao.maps.Map(mapContainer, mapOption);
+
+                var concerts = JSON.parse("{{ concertJson|escapejs }}");
+
+                var positions = [];
+                for (var i = 0; i < Object.keys(concerts).length; i++) {
+                var content = {
+                    title: concerts[i].title,
+                    latlng: new kakao.maps.LatLng(concerts[i].latitude, concerts[i].longitude),
+                    address: concerts[i].address,
+                    datetime: concerts[i].datetime,
+                    id: concerts[i].id,
+                }
+                positions.push(content);
+                };
+
+                // 마커 이미지의 이미지 주소입니다
+                var imageSrc = "https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/markerStar.png";
+                for (var i = 0; i < positions.length; i++) {
+                    // 마커 이미지의 이미지 크기 입니다
+                    var imageSize = new kakao.maps.Size(24, 35);
+                    // 마커 이미지를 생성합니다
+                    var markerImage = new kakao.maps.MarkerImage(imageSrc, imageSize);
+                    // 마커를 생성합니다
+                    var marker = new kakao.maps.Marker({
+                        map: map, // 마커를 표시할 지도
+                        position: positions[i].latlng, // 마커를 표시할 위치
+                        title: positions[i].title, // 마커의 타이틀, 마커에 마우스를 올리면 타이틀이 표시됩니다
+                        image: markerImage // 마커 이미지
+                    });
+
+                    (function(marker, place) {
+                    // 마크 클릭 시
+                    kakao.maps.event.addListener(marker, 'click', function() {
+                        var overlay = new kakao.maps.CustomOverlay({
+                        // 오버레이에 띄울 내용
+                        content: '<div class="wrap">' +
+                                '    <div class="info">' +
+                                '        <div class="title">' +
+                                place.title +
+                                '        </div>' +
+                                '    </div>' +
+                                '    <div class="body">' +
+                                '        <div class="desc">' +
+                                '            <div class="address">' + place.address + '</div>' +
+                                '		   <div class="datetime">' + place.datetime + '</div>' +
+                                '        </div>' +
+                                '    </div>' +
+                                '</div>',
+                        map: map,
+                        position: marker.getPosition()
+                        });
+
+                        kakao.maps.event.addListener(overlay, 'click', function(mouseEvent){
+                            function page_href() {
+                                location.href  ="{% url 'detail' 2 %}";
+                            }
+                        })
+                        // 아무데나 클릭하게되면 overlay를 끄기
+                        kakao.maps.event.addListener(map, 'click', function(mouseEvent) {
+                        overlay.setMap(null)
+                        })
+                        overlay.setMap(map);
+                    })
+                })(marker, positions[i])
+
+                }
+
+                
+
+            </script>
+        </div>
+    </div>
+    
+</body>
+=======
 {%load static%}
 <!DOCTYPE html>
 <html lang="ko">
@@ -36,4 +141,5 @@
     </div>
     <script src="{% static 'js/main.js' %}"></script>
 </body>
+>>>>>>> 26e64121249c423a2b826800896fb939080c9181
 </html>
