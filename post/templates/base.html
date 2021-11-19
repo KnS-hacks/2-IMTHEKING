@@ -11,12 +11,15 @@
                 </div>
                 <div id="center">
                     <div id="searcharea">
-                        <input type="text" placeholder="지역을 입력하세요. ex)천안시">
-                        <button>
-                            <div id="searchimg">
-                            <img src="{% static 'img\search.png' %}">
-                            </div>
-                        </button>
+                        <form method="GET">
+                            <!-- {% csrf_token %} -->
+                            <input type="text" placeholder="지역을 입력하세요. ex)천안시" id='q' name='q' value={{q}}>
+                            <button id="navbar_toggle" type="submit">
+                                <div id="searchimg">
+                                    <img src="{% static 'img\search.png' %}">
+                                </div>
+                            </button>
+                        </form> 
                     </div>
                 </div>
                 <div id="right">

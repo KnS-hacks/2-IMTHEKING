@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Concert
 import json
+from django.db.models import Q
 
 # Create your views here.
 def main (request):
@@ -18,8 +19,16 @@ def main (request):
     }
     concertdict.append(content)
 
+    key = request.GET.get('q', "")
+    print(key)
+    if key:
+      concerts = concerts.filter(Q(concert_address__icontains=key))
+      print(concerts)
+      return render(request, 'main.html', {'concerts' : concerts})
+
   concertJson = json.dumps(concertdict)
   return render(request, 'main.html', {'concertJson':concertJson})
+
 
 def location(request, Concert_id):
     concert=Concert.objects.get(id=Concert_id)
@@ -74,8 +83,8 @@ def update(request, Concert_id):
       concert.save()
       return redirect('/post/selectlocation/' + str(concert.id))
 
-def search(request):
-  search_word = request.GET['search']
-  addresses = Concert.objects.filter(concert_address__contains = search_word)
+# def search(request):
+#   search_word = request.GET['search']
+#   addresses = Concert.objects.filter(concert_address__contains = search_word)
 
-  return render (request, 'main.html', {'addresses':addresses})
+#   return render (request, 'main.html', {'addresses':addresses})

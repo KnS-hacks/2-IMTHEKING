@@ -13,6 +13,23 @@
 <body>
     <div id="wrap">
         {% include 'base.html' %}
+        <div class="side_bar">
+            {% for concert in concerts %}
+                <a href="{% url 'detail' concert.id %}">
+                    <div class="item-container">
+                        <div class="item-title">
+                            <p>{{concert.concert_title}}</p>
+                        </div>
+                        <div class="item-address">
+                            <p>{{ concert.concert_location }}</p>
+                            <p>{{ concert.concert_address }}</p>
+                        </div>
+                    
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+        
         <div id="map">
             <div id="realmap">
             </div>
@@ -95,7 +112,11 @@
 
             </script>
         </div>
+        {% if user.is_authenticated %}
+        <div id="uploadbutton">
+            <button type="button" id="upload"><a href="{% url 'upload' %}">등록하기</a></button>
+        </div>
+        {% endif %}
     </div>
-    
 </body>
 </html>

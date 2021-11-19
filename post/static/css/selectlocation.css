@@ -42,6 +42,8 @@ body {
 }
 #post {
     margin-right: 90px;
+    z-index: 900;
+    margin-top:100px;
 }
 #address{
     border : none;
